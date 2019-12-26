@@ -4,8 +4,8 @@
 
 <html lang="en">
 <head >
-  
-{% load static %}
+  {% load static %}
+
   
   
   <meta charset="utf-8">
@@ -13,7 +13,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Jekyll v3.8.6">
-    <title>Portfolio</title>
+    <title>{{detailblog}}</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.4/examples/album/">
 
@@ -27,6 +27,7 @@
 <link rel="icon" href="/docs/4.4/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
 <link rel="manifest" href="/docs/4.4/assets/img/favicons/manifest.json">
 <link rel="mask-icon" href="/docs/4.4/assets/img/favicons/safari-pinned-tab.svg" color="#563d7c">
+
 <meta name="msapplication-config" content="/docs/4.4/assets/img/favicons/browserconfig.xml">
 <meta name="theme-color" content="#563d7c">
 
@@ -52,57 +53,44 @@
   </head>
   <body>
     <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <a class="navbar-brand" href="{% url 'home' %}">NEHAL AHMED</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-              <div class="navbar-nav ml-auto">
-                <a class="nav-item nav-link" href="{% url 'allblog' %}">Blog</a>
-                <a class="nav-item nav-link" href="https://github.com/nehal2210">Git</a>
-                <a class="nav-item nav-link" href="{% static 'resume.jpeg' %}"\>Resume</a>
-             
-            </div>
-            </div>
-          </nav>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="{% url 'home' %}">NEHAL AHMED</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav ml-auto">
+            <a class="nav-item nav-link active" href="{% url 'allblog' %}">Blog</a>
+            <a class="nav-item nav-link" href="https://github.com/nehal2210">Git</a>
+            <a class="nav-item nav-link" href="{% static 'resume.jpeg' %}"\>Resume</a>
+         
+        </div>
+        </div>
+      </nav>
+
 </header>
 
 <main role="main">
-
-  <section class="jumbotron text-center">
-    <div class="container">
-      <h1>Nehal Ahmed</h1>
-      <p> class="lead text-muted">Hello Guys! my name is Nehal Ahmed and I have an experience in embeded systems,cutting edge technology in iot,Artificial Intelligence and web developtment in Django. I love to teach this subjects.Read my articles and stay aware about the Fourth Industrial Revolution Technology.<br> Thanks<p>
-        <a href="mailto:gatshabz221097@gmail.com" class="btn btn-primary my-2">Email Me</a>
-        <!-- <a href="#" class="btn btn-secondary my-2">Secondary action</a> -->
-      </p>
+<div class="container">
 
 
-    </div>
-    <img src="{% static 'ME.jpg'%}"  width="250"/>
-  </section>
 
-  <div class="album py-5 bg-light">
-    <div class="container">
 
-      <div class="row">
-   
-{%for job in jobs.all %}
-        <div class="col-md-4">
-          <div class="card mb-4 shadow-sm">
-            <img  src='{{job.image.url}}' width="100%" height="225"></img>
-            <div class="card-body">
-              <p class="card-text"> {{job.summary}}</p>
-        
-              </div>
-            </div>
-          </div>
-          {%endfor%}
-        </div>
+<h3 class="text-center">{{detailblog.title}}</h3>
+<p class="text-center">{{detailblog.pub_date_pretty}}<p>
 
-    </div>
-  </div>
+<br>
+<img class="img-fluid" src="{{detailblog.image.url}}" height="500" width="600">
+<br>
+<br>
+
+<p>{{detailblog.body}}</p>
+
+</div>
+
+
+
+
 
 </main>
 
